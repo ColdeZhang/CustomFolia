@@ -15,14 +15,14 @@ jobs:
           fetch-depth: 0
       - name: "Validate Gradle wrapper"
         uses: https://ssl.lunadeer.cn:14446/actions/wrapper-validation-action@v1
-      - name: "Setup Gradle"
-        uses: https://ssl.lunadeer.cn:14446/actions/gradle-build-action@v2
       - name: "Set up JDK 17"
         uses: https://ssl.lunadeer.cn:14446/actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'zulu'
           cache: gradle
+      - name: "Setup Gradle"
+        uses: https://ssl.lunadeer.cn:14446/actions/gradle-build-action@v2
       - name: "Apply Patches"
         run: ./gradlew applyPatches
       - name: "Build"
